@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lemons — Bookkeeping built for Schedule C small business owners. Less admin. Cleaner records. Tax time that doesn't hurt.">
+  <title>Lemons — Bookkeeping for Schedule C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --text: #1a1a1a;
+      --text-muted: #5c5c5c;
+      --accent: #c9a227;
+      --accent-hover: #b8921f;
+      --input-bg: #fff;
+      --input-border: #e5e2dc;
+      --radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Subtle paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 520px;
+    }
+
+    .logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+    }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    .subhead {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2.25rem;
+      font-weight: 400;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="email"] {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.875rem 1.25rem;
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius);
+      background: var(--input-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="email"]::placeholder {
+      color: #9a9a9a;
+    }
+
+    input[type="email"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2);
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.875rem 1.5rem;
+      background: var(--accent);
+      color: #1a1a1a;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    button:hover {
+      background: var(--accent-hover);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .trust-line {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 480px) {
+      form {
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      input[type="email"] {
+        flex: 1;
+      }
+
+      button {
+        flex-shrink: 0;
+        min-width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="logo">Lemons</p>
+    <h1>Bookkeeping that gets Schedule C.</h1>
+    <p class="subhead">Built for freelancers and sole proprietors. Less admin. Cleaner records. Tax time that doesn't hurt.</p>
+    <form action="#" method="post" id="waitlist-form">
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+      <button type="submit">Get early access</button>
+    </form>
+    <p class="trust-line">We'll only email when we launch. No spam.</p>
+  </main>
+  <script>
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks! We\'ll be in touch when Lemons launches.');
+    });
+  </script>
+</body>
+</html>
