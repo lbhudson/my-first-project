@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lemons — Bookkeeping built for Schedule C small business owners. Learn about Schedule C, who files it, and why Lemons simplifies tax-ready bookkeeping for freelancers and sole proprietors.">
+  <title>Lemons — Bookkeeping for Schedule C Small Business Owners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fefdf9;
+      --bg-warm: #fefbe9;
+      --text: #1a1a1a;
+      --text-muted: #4a4a4a;
+      --lemon: #f5e642;
+      --lemon-dark: #e6d429;
+      --lemon-light: #fdf9c4;
+      --accent: #c9a227;
+      --accent-hover: #b8921f;
+      --input-bg: #fff;
+      --input-border: #e5e2dc;
+      --radius: 12px;
+      --section-gap: 4rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Lemon pattern background */
+    .lemon-bg {
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(245, 230, 66, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 230, 66, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(253, 249, 196, 0.3) 0%, transparent 70%);
+    }
+
+    /* Lemon SVG inline decoration */
+    .lemon-float {
+      position: absolute;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .lemon-float.one { top: 10%; left: 5%; width: 60px; }
+    .lemon-float.two { top: 25%; right: 8%; width: 45px; }
+    .lemon-float.three { bottom: 30%; left: 10%; width: 50px; }
+    .lemon-float.four { bottom: 15%; right: 15%; width: 70px; }
+    .lemon-float.five { top: 60%; left: 3%; width: 35px; }
+    .lemon-float.six { top: 15%; right: 25%; width: 40px; }
+    .lemon-float.seven { bottom: 45%; right: 5%; width: 55px; }
+    .lemon-float.eight { top: 75%; right: 20%; width: 45px; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .logo-lemons {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-lemons svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    .subhead {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="email"] {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.875rem 1.25rem;
+      border: 2px solid var(--input-border);
+      border-radius: var(--radius);
+      background: var(--input-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="email"]:focus {
+      border-color: var(--lemon-dark);
+      box-shadow: 0 0 0 4px rgba(245, 230, 66, 0.3);
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 1.5rem;
+      background: var(--lemon-dark);
+      color: #1a1a1a;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    button:hover {
+      background: var(--accent);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .trust-line {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--section-gap) 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    section h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    section h2 svg {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    section p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .schedule-c-box {
+      background: var(--bg-warm);
+      border: 2px solid var(--lemon-light);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .schedule-c-box h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .schedule-c-box ul, .audience-list ul, .problem-list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .schedule-c-box li, .audience-list li, .problem-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    .schedule-c-box li::before, .audience-list li::before, .problem-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      width: 6px;
+      height: 6px;
+      background: var(--lemon-dark);
+      border-radius: 50%;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .audience-card {
+      background: white;
+      border: 2px solid var(--input-border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .audience-card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.75rem;
+    }
+
+    .audience-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    .audience-card span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: var(--bg-warm);
+      border-top: 2px solid var(--lemon-light);
+      margin-top: 2rem;
+    }
+
+    .cta-section h2 {
+      justify-content: center;
+    }
+
+    .cta-section .subhead {
+      margin-bottom: 2rem;
+    }
+
+    .cta-section form {
+      max-width: 480px;
+      margin: 0 auto 1rem;
+    }
+
+    @media (min-width: 480px) {
+      form {
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      input[type="email"] {
+        flex: 1;
+      }
+
+      button {
+        flex-shrink: 0;
+        min-width: 160px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .lemon-float { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body class="lemon-bg">
+  <!-- Floating lemon decorations -->
+  <svg class="lemon-float one" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(-15 32 32)"/></svg>
+  <svg class="lemon-float two" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(25 32 32)"/></svg>
+  <svg class="lemon-float three" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(-40 32 32)"/></svg>
+  <svg class="lemon-float four" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(10 32 32)"/></svg>
+  <svg class="lemon-float five" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(-20 32 32)"/></svg>
+  <svg class="lemon-float six" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(35 32 32)"/></svg>
+  <svg class="lemon-float seven" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(-5 32 32)"/></svg>
+  <svg class="lemon-float eight" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#f5e642" transform="rotate(15 32 32)"/></svg>
+
+  <header class="hero lemon-bg">
+    <div class="hero-content">
+      <p class="logo">
+        <span class="logo-lemons">
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(-15 32 32)"/></svg>
+          Lemons
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(20 32 32)"/></svg>
+        </span>
+      </p>
+      <h1>Bookkeeping that gets Schedule C.</h1>
+      <p class="subhead">Built for freelancers and sole proprietors. Less admin. Cleaner records. Tax time that doesn't hurt.</p>
+      <form action="#" method="post" id="hero-form">
+        <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit">Get early access</button>
+      </form>
+      <p class="trust-line">We'll only email when we launch. No spam.</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>
+      <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(-10 32 32)"/></svg>
+      What is Schedule C?
+    </h2>
+    <p><strong>Schedule C</strong> (Form 1040) is the IRS form used by sole proprietors and single-member LLCs to report profit or loss from a business. If you run your own business and file taxes as an individual—not through a corporation or partnership—you're almost certainly a Schedule C filer.</p>
+    <div class="schedule-c-box">
+      <h3>Bookkeeping for Schedule C owners typically involves:</h3>
+      <ul>
+        <li>Categorizing income and expenses per IRS guidelines</li>
+        <li>Tracking deductible business expenses (home office, supplies, mileage, etc.)</li>
+        <li>Separating personal and business transactions</li>
+        <li>Preparing clean records for tax filing and year-end returns</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>
+      <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(15 32 32)"/></svg>
+      Who Files Schedule C?
+    </h2>
+    <p>Schedule C small business owners include a wide range of self-employed professionals. If any of these describe you, Lemons is built for your workflow.</p>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="18" ry="22" fill="#f5e642" transform="rotate(-12 32 32)"/></svg>
+        <strong>Freelancers</strong>
+        <span>Designers, writers, consultants</span>
+      </div>
+      <div class="audience-card">
+        <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="18" ry="22" fill="#f5e642" transform="rotate(8 32 32)"/></svg>
+        <strong>Gig workers</strong>
+        <span>Drivers, delivery, task-based work</span>
+      </div>
+      <div class="audience-card">
+        <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="18" ry="22" fill="#f5e642" transform="rotate(-5 32 32)"/></svg>
+        <strong>Independent contractors</strong>
+        <span>1099 workers, project-based</span>
+      </div>
+      <div class="audience-card">
+        <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="18" ry="22" fill="#f5e642" transform="rotate(18 32 32)"/></svg>
+        <strong>Sole proprietors</strong>
+        <span>Single-owner businesses</span>
+      </div>
+      <div class="audience-card">
+        <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="18" ry="22" fill="#f5e642" transform="rotate(12 32 32)"/></svg>
+        <strong>Single-member LLCs</strong>
+        <span>LLCs reporting on Schedule C</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>
+      <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(-18 32 32)"/></svg>
+      The Problem
+    </h2>
+    <p>Schedule C owners face unique bookkeeping challenges that generic tools don't solve well:</p>
+    <ul class="problem-list">
+      <li><strong>Tax categorization is confusing and time-consuming</strong> — IRS categories don't always match how you think about your expenses.</li>
+      <li><strong>Deductible expenses are easy to miss or misclassify</strong> — One wrong category can cost you at tax time.</li>
+      <li><strong>Many tools are built for larger businesses</strong> — Invoicing, payroll, and multi-user features you don't need.</li>
+      <li><strong>Year-end tax prep is chaotic without clean records</strong> — Scrambling in April is avoidable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(5 32 32)"/></svg>
+      Built for You
+    </h2>
+    <p>Lemons is designed specifically for Schedule C small business owners. No bloat. No features you'll never use. Just bookkeeping that understands your workflow, keeps your records tax-ready, and makes April less painful.</p>
+  </section>
+
+  <section class="cta-section">
+    <h2>
+      <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="24" fill="#e6d429" transform="rotate(-8 32 32)"/></svg>
+      Be the first to know
+    </h2>
+    <p class="subhead">Join the waitlist for early access. We'll only email when we launch.</p>
+    <form action="#" method="post" id="cta-form">
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+      <button type="submit">Get early access</button>
+    </form>
+    <p class="trust-line">No spam. Unsubscribe anytime.</p>
+  </section>
+
+  <script>
+    document.getElementById('hero-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks! We\'ll be in touch when Lemons launches.');
+    });
+    document.getElementById('cta-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks! We\'ll be in touch when Lemons launches.');
+    });
+  </script>
+</body>
+</html>
